@@ -1,0 +1,26 @@
+﻿vagrant@vagrant:~$ cd /vagrant
+vagrant@vagrant:/vagrant$ ls
+catalog  forum  Logs_Analysis.py  log_test.py  newsdata.sql  README.rtf  tournament  Vagrantfile
+vagrant@vagrant:/vagrant$ python Logs_Analysis.py
+
+***************************************
+Three most popular articles of all time
+***************************************
+"Candidate is jerk, alleges rival" - 338647 views
+"Bears love berries, alleges bear" - 253801 views
+"Bad things gone, say good people" - 170098 views
+
+
+*********************************
+Most popular authors of all time
+*********************************
+Ursula La Multa - 507594 views
+Rudolf von Treppenwitz - 423457 views
+Anonymous Contributor - 170098 views
+Markoff Chaney - 84557 views
+
+
+*********************************
+Days with greater than 1% errors
+*********************************
+July 17, 2016 - 2.3% errors
