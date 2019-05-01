@@ -56,7 +56,7 @@ Then run the following command to load the logs into the database:
 
 The logs reporting tool is executed with the following command:
 
-`python logs_analysis.py`
+`python logs_analysis_final.py`
 
 The answers to the three questions should now be displayed.
 
