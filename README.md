@@ -17,7 +17,7 @@ The project code was created using the following software:
 * psycopg2 2.7.7
 * PostgreSQL 9.5.14
 
-View utilized in the file are included in the python file itself, but are also included here for reference:
+The following views are written into the python file itself and they are also included below for reference purposes:
 ```sql 
 CREATE view comboT AS
 SELECT articles.title, articles.slug, authors.name, authors.id, log.time::date as date
