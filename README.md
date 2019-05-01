@@ -17,6 +17,26 @@ The project code was created using the following software:
 * psycopg2 2.7.7
 * PostgreSQL 9.5.14
 
+View utilized in the file are included in the python file itself, but are also included here for reference:
+```sql 
+CREATE view comboT AS
+SELECT articles.title, articles.slug, authors.name, authors.id, log.time::date as date
+FROM articles, authors, log WHERE log.path = '/article/' || articles.slug and articles.author = authors.id;
+```     
+```sql 
+CREATE view page_views AS 
+SELECT count(*) AS page_views, time::date AS date 
+FROM log WHERE status = '200 OK' GROUP BY date;
+```
+```sql
+CREATE VIEW errors AS SELECT count(*) AS errors, time::date AS date 
+FROM log WHERE status != '200 OK' GROUP BY date ORDER BY count(*) DESC;
+```               
+```sql
+CREATE VIEW fail_rate AS SELECT round((errors.errors*1.0/(page_views.page_views+errors.errors)*100, 1) 
+AS percent_errors, errors.date 
+FROM errors, page_views WHERE errors.date = page_views.date;
+```
 This project can be run in a Vagrant managed virtual machine (VM). For this project, Vagrant and VirtualBox software were installed on the system.
 
 **Project contents**
