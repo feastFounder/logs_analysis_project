@@ -19,7 +19,6 @@ def view_comboT(db_cursor):
             SELECT articles.title, articles.slug, authors.name, authors.id, log.time::date as date
             FROM articles, authors, log WHERE log.path = '/article/' || articles.slug and articles.author = authors.id;
             """
-    return
 
 def view_pviews(db_cursor):
     create_view = """
