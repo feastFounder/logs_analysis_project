@@ -1,7 +1,4 @@
-﻿vagrant@vagrant:~$ cd /vagrant
-vagrant@vagrant:/vagrant$ ls
-catalog  forum  Logs_Analysis.py  log_test.py  newsdata.sql  README.rtf  tournament  Vagrantfile
-vagrant@vagrant:/vagrant$ python Logs_Analysis.py
+vagrant@vagrant:/vagrant$ python Logs_Analysis_final.py
 
 ***************************************
 Three most popular articles of all time
