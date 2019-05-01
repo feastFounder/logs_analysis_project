@@ -20,7 +20,7 @@ The project code was created using the following software:
 This project can be run in a Vagrant managed virtual machine (VM). For this project, Vagrant and VirtualBox software were installed on the system.
 
 **Project contents**
-* Logs_Analysis.py - This the Python program that connects to the PostgreSQL database (‘news’), executes the SQL queries and displays the desired results.
+* Logs_Analysis_final.py - This the Python program that connects to the PostgreSQL database (‘news’), executes several queries and displays the desired results.
 * newsdata.zip - Zip file with the data that populates the PostgreSQL database named 'news'.
 * README.md - Contains info about the project (also, what you’re currently reading).
 * Vagrantfile - This is the configuration file for the Vagrant virtual machine.
@@ -34,13 +34,11 @@ Open your terminal and navigate to the folder containing the Vagrant file.  Then
 
 `vagrant up`
 
-The first time you run this command, it may take an extra minute because Vagrant needs to download the VM image.
-You can then log into the VM with the following command:
+then
 
 `vagrant ssh`
 
-Navigate to the folder containing the .
-Once inside the VM, navigate to the /vagrant directory, which should contain the newsdata.zip and Logs_Analysis.py files with this command:
+Once inside the VM, navigate to the /vagrant directory using the command:
 
 `cd /vagrant`
 
@@ -67,6 +65,6 @@ When you are finished with the project,  press Ctrl-D to log out of it. You can 
 
 You should see something akin to 
 
-*“Attempting to gracefully shut down the virtual machine…”* 
+*“Attempting graceful shutdown of VM…”* 
 
 in your terminal.  Once this process finishes, it will be safe to shut down the terminal without leaving the virtual machine to run in the background forever and ever.
