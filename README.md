@@ -5,6 +5,7 @@ by Paul Tillman - Logs Analysis Project from the Udacity Full Stack Web Develope
 ---
 Project
 ---
+This project can be run in a Vagrant managed virtual machine (VM). For this project, Vagrant and VirtualBox software were installed on the system.
 
 **Write SQL queries to answer the following questions about a PostgreSQL database which contains the logs of a fictional newspaper’s website.**
 1. What are the most popular three articles of all time?
@@ -17,6 +18,7 @@ The project code was created using the following software:
 * psycopg2 2.7.7
 * PostgreSQL 9.5.14
 
+**For Reference**
 The following views are written into the python file itself and they are also included below for reference purposes:
 ```sql 
 CREATE view comboT AS
@@ -37,7 +39,6 @@ CREATE VIEW fail_rate AS SELECT round((errors.errors*1.0/(page_views.page_views+
 AS percent_errors, errors.date 
 FROM errors, page_views WHERE errors.date = page_views.date;
 ```
-This project can be run in a Vagrant managed virtual machine (VM). For this project, Vagrant and VirtualBox software were installed on the system.
 
 **Project contents**
 * Logs_Analysis_final.py - This the Python program that connects to the PostgreSQL database (‘news’), executes several queries and displays the desired results.
@@ -46,6 +47,9 @@ This project can be run in a Vagrant managed virtual machine (VM). For this proj
 * Vagrantfile - This is the configuration file for the Vagrant virtual machine.
 
 **How to Run the Project**
+You will need to download and install [vagrant](https://www.vagrantup.com/downloads.html) and [VirtualBox](www.virtualbox.org).
+Then download or clone the [fullstack-nanodegree-vm](https://github.com/udacity/fullstack-nanodegree-vm) repository from Udacity.  Likewise, download the necessary data file: [newsdata](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip).  Unzip the file to find the newsdata.sql database.
+
 Download the project zip file to your computer and unzip the file to your desired project directory.
 Open the text-based interface for your operating system (terminal window, command prompt, Git Bash, etc ….) and navigate to the project directory.
 
