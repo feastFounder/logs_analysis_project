@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Logs Analysis Project - Paul Tillman"""
-
 import psycopg2
 
 DBNAME = "news"
@@ -15,27 +14,27 @@ def connect_to_database():
 
 def view_comboT(db_cursor):
     create_view = """
-            CREATE view comboT AS
+            CREATE OR REPLACE VIEW comboT AS
             SELECT articles.title, articles.slug, authors.name, authors.id, log.time::date as date
             FROM articles, authors, log WHERE log.path = '/article/' || articles.slug and articles.author = authors.id;
             """
 
 def view_pviews(db_cursor):
     create_view = """
-            CREATE view page_views AS 
+            CREATE OR REPLACE VIEW page_views AS 
             SELECT count(*) AS page_views, time::date AS date 
             FROM log WHERE status = '200 OK' GROUP BY date;
             """
 
 def view_errors(db_cursor):
     create_view = """
-            CREATE VIEW errors AS SELECT count(*) AS errors, time::date AS date 
+            CREATE OR REPLACE VIEW errors AS SELECT count(*) AS errors, time::date AS date 
             FROM log WHERE status != '200 OK' GROUP BY date ORDER BY count(*) DESC;
             """
 
 def view_frate(db_cursor):
     create_view = """
-        CREATE VIEW fail_rate AS SELECT round((errors.errors*1.0/(page_views.page_views+errors.errors)*100, 1) AS percent_errors, errors.date 
+        CREATE OR REPLACE VIEW fail_rate AS SELECT round((errors.errors*1.0/(page_views.page_views+errors.errors)*100, 1) AS percent_errors, errors.date 
         FROM errors, page_views WHERE errors.date = page_views.date;
             """
 
